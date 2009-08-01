@@ -36,7 +36,7 @@ Rake::RDocTask.new do |rd|
   rd.title = "ar4r - Artificial Intelligence For Ruby - API DOC"
 end
 
-Rake::GemPackageTask.new(SPEC) do |pkg| 
-  pkg.need_zip = true
-end 
+#Rake::GemPackageTask.new(SPEC) do |pkg|
+#  pkg.need_zip = true
+#end 
 

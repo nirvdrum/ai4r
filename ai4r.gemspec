@@ -1,22 +1,221 @@
-require 'rubygems'
+# -*- encoding: utf-8 -*-
 
-SPEC = Gem::Specification.new do |s|
-  s.name = "ai4r"
-  s.version = "1.9"
-  s.author = "Sergio Fierens"
-  s.email = "sergio@jadeferret.com"
-  s.homepage = "http://ai4r.rubyforge.org"
-  s.rubyforge_project = "ai4r"
-  s.platform = Gem::Platform::RUBY
-  s.summary = <<-DESC.strip.gsub(/\n\s+/, " ")
-    Ruby implementations of algorithms covering several
-    Artificial intelligence fields, including Genetic
-    algorithms, Neural Networks, machine learning, and clustering.
-  DESC
-  s.files = FileList["{examples,lib}/**/*"].to_a
-  s.require_path = "lib"
-  s.test_files = FileList["{test}/**/*test.rb"].to_a
-  s.has_rdoc = true
-  s.extra_rdoc_files = ["README.rdoc"]
-  #s.add_dependency("dependency", ">= 0.x.x")
+Gem::Specification.new do |s|
+  s.name = %q{ai4r}
+  s.version = "1.9.0"
+
+  s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
+  s.authors = ["Sergio Fierens"]
+  s.date = %q{2009-08-01}
+  s.description = %q{Describe your gem}
+  s.email = %q{sergio@jadeferret.com}
+  s.extra_rdoc_files = [
+    "README.rdoc"
+  ]
+  s.files = [
+    ".gitignore",
+     ".rakeTasks",
+     "README.rdoc",
+     "Rakefile.rb",
+     "VERSION",
+     "ai4r.gemspec",
+     "change_log",
+     "examples/classifiers/id3_data.csv",
+     "examples/classifiers/id3_example.rb",
+     "examples/classifiers/naive_bayes_data.csv",
+     "examples/classifiers/naive_bayes_example.rb",
+     "examples/classifiers/results.txt",
+     "examples/genetic_algorithm/genetic_algorithm_example.rb",
+     "examples/genetic_algorithm/travel_cost.csv",
+     "examples/neural_network/backpropagation_example.rb",
+     "examples/neural_network/patterns_with_base_noise.rb",
+     "examples/neural_network/patterns_with_noise.rb",
+     "examples/neural_network/training_patterns.rb",
+     "examples/neural_network/xor_example.rb",
+     "examples/som/som_data.rb",
+     "examples/som/som_multi_node_example.rb",
+     "examples/som/som_single_example.rb",
+     "lib/ai4r.rb",
+     "lib/ai4r/classifiers/classifier.rb",
+     "lib/ai4r/classifiers/hyperpipes.rb",
+     "lib/ai4r/classifiers/id3.rb",
+     "lib/ai4r/classifiers/multilayer_perceptron.rb",
+     "lib/ai4r/classifiers/naive_bayes.rb",
+     "lib/ai4r/classifiers/one_r.rb",
+     "lib/ai4r/classifiers/prism.rb",
+     "lib/ai4r/classifiers/zero_r.rb",
+     "lib/ai4r/clusterers/average_linkage.rb",
+     "lib/ai4r/clusterers/bisecting_k_means.rb",
+     "lib/ai4r/clusterers/centroid_linkage.rb",
+     "lib/ai4r/clusterers/clusterer.rb",
+     "lib/ai4r/clusterers/complete_linkage.rb",
+     "lib/ai4r/clusterers/diana.rb",
+     "lib/ai4r/clusterers/k_means.rb",
+     "lib/ai4r/clusterers/median_linkage.rb",
+     "lib/ai4r/clusterers/single_linkage.rb",
+     "lib/ai4r/clusterers/ward_linkage.rb",
+     "lib/ai4r/clusterers/weighted_average_linkage.rb",
+     "lib/ai4r/data/data_set.rb",
+     "lib/ai4r/data/parameterizable.rb",
+     "lib/ai4r/data/proximity.rb",
+     "lib/ai4r/data/statistics.rb",
+     "lib/ai4r/experiment/classifier_evaluator.rb",
+     "lib/ai4r/genetic_algorithm/genetic_algorithm.rb",
+     "lib/ai4r/neural_network/backpropagation.rb",
+     "lib/ai4r/neural_network/hopfield.rb",
+     "lib/ai4r/som/layer.rb",
+     "lib/ai4r/som/node.rb",
+     "lib/ai4r/som/som.rb",
+     "lib/ai4r/som/two_phase_layer.rb",
+     "site/forrest.properties",
+     "site/forrest.properties.dispatcher.properties",
+     "site/forrest.properties.xml",
+     "site/src/documentation/README.txt",
+     "site/src/documentation/classes/CatalogManager.properties",
+     "site/src/documentation/content/locationmap.xml",
+     "site/src/documentation/content/xdocs/downloads.html",
+     "site/src/documentation/content/xdocs/geneticAlgorithms.xml",
+     "site/src/documentation/content/xdocs/index.xml",
+     "site/src/documentation/content/xdocs/machineLearning.xml",
+     "site/src/documentation/content/xdocs/neuralNetworks.xml",
+     "site/src/documentation/content/xdocs/site.xml",
+     "site/src/documentation/content/xdocs/sourceCode.xml",
+     "site/src/documentation/content/xdocs/tabs.xml",
+     "site/src/documentation/resources/images/ai4r-logo.png",
+     "site/src/documentation/resources/images/c.png",
+     "site/src/documentation/resources/images/c_wbn.png",
+     "site/src/documentation/resources/images/c_wn.png",
+     "site/src/documentation/resources/images/ellipse-2.svg",
+     "site/src/documentation/resources/images/ero.gif",
+     "site/src/documentation/resources/images/europe2.png",
+     "site/src/documentation/resources/images/europe3.png",
+     "site/src/documentation/resources/images/fitness.png",
+     "site/src/documentation/resources/images/genetic_algorithms_example.png",
+     "site/src/documentation/resources/images/icon-a.png",
+     "site/src/documentation/resources/images/icon-b.png",
+     "site/src/documentation/resources/images/icon.png",
+     "site/src/documentation/resources/images/jadeferret.png",
+     "site/src/documentation/resources/images/my_email.png",
+     "site/src/documentation/resources/images/neural_network_example.png",
+     "site/src/documentation/resources/images/project-logo.png",
+     "site/src/documentation/resources/images/rubyforge.png",
+     "site/src/documentation/resources/images/s.png",
+     "site/src/documentation/resources/images/s_wbn.png",
+     "site/src/documentation/resources/images/s_wn.png",
+     "site/src/documentation/resources/images/sigmoid.png",
+     "site/src/documentation/resources/images/sub-dir/icon-c.png",
+     "site/src/documentation/resources/images/t.png",
+     "site/src/documentation/resources/images/t_wbn.png",
+     "site/src/documentation/resources/images/t_wn.png",
+     "site/src/documentation/resources/schema/catalog.xcat",
+     "site/src/documentation/resources/schema/hello-v10.dtd",
+     "site/src/documentation/resources/schema/symbols-project-v10.ent",
+     "site/src/documentation/resources/stylesheets/hello2document.xsl",
+     "site/src/documentation/sitemap.xmap",
+     "site/src/documentation/skinconf.xml",
+     "site/src/documentation/translations/langcode.xml",
+     "site/src/documentation/translations/languages_de.xml",
+     "site/src/documentation/translations/languages_en.xml",
+     "site/src/documentation/translations/languages_es.xml",
+     "site/src/documentation/translations/languages_fr.xml",
+     "site/src/documentation/translations/languages_nl.xml",
+     "site/src/documentation/translations/menu.xml",
+     "site/src/documentation/translations/menu_af.xml",
+     "site/src/documentation/translations/menu_de.xml",
+     "site/src/documentation/translations/menu_es.xml",
+     "site/src/documentation/translations/menu_fr.xml",
+     "site/src/documentation/translations/menu_it.xml",
+     "site/src/documentation/translations/menu_nl.xml",
+     "site/src/documentation/translations/menu_no.xml",
+     "site/src/documentation/translations/menu_ru.xml",
+     "site/src/documentation/translations/menu_sk.xml",
+     "site/src/documentation/translations/tabs.xml",
+     "site/src/documentation/translations/tabs_de.xml",
+     "site/src/documentation/translations/tabs_es.xml",
+     "site/src/documentation/translations/tabs_fr.xml",
+     "site/src/documentation/translations/tabs_nl.xml",
+     "test/classifiers/hyperpipes_test.rb",
+     "test/classifiers/id3_test.rb",
+     "test/classifiers/multilayer_perceptron_test.rb",
+     "test/classifiers/naive_bayes_test.rb",
+     "test/classifiers/one_r_test.rb",
+     "test/classifiers/prism_test.rb",
+     "test/classifiers/zero_r_test.rb",
+     "test/clusterers/average_linkage_test.rb",
+     "test/clusterers/bisecting_k_means_test.rb",
+     "test/clusterers/centroid_linkage_test.rb",
+     "test/clusterers/complete_linkage_test.rb",
+     "test/clusterers/diana_test.rb",
+     "test/clusterers/k_means_test.rb",
+     "test/clusterers/median_linkage_test.rb",
+     "test/clusterers/single_linkage_test.rb",
+     "test/clusterers/ward_linkage_test.rb",
+     "test/clusterers/weighted_average_linkage_test.rb",
+     "test/data/data_set.csv",
+     "test/data/data_set_test.rb",
+     "test/data/proximity_test.rb",
+     "test/data/statistics_data_set.csv",
+     "test/data/statistics_test.rb",
+     "test/experiment/classifier_evaluator_test.rb",
+     "test/genetic_algorithm/chromosome_test.rb",
+     "test/genetic_algorithm/genetic_algorithm_test.rb",
+     "test/neural_network/backpropagation_test.rb",
+     "test/neural_network/hopfield_test.rb",
+     "test/som/som_test.rb"
+  ]
+  s.homepage = %q{http://ai4r.rubyforge.org}
+  s.rdoc_options = ["--charset=UTF-8"]
+  s.require_paths = ["lib"]
+  s.rubyforge_project = %q{ai4r}
+  s.rubygems_version = %q{1.3.4}
+  s.summary = %q{Ruby implementations of algorithms covering several Artificial intelligence fields, including Genetic algorithms, Neural Networks, machine learning, and clustering.}
+  s.test_files = [
+    "test/classifiers/hyperpipes_test.rb",
+     "test/classifiers/id3_test.rb",
+     "test/classifiers/multilayer_perceptron_test.rb",
+     "test/classifiers/naive_bayes_test.rb",
+     "test/classifiers/one_r_test.rb",
+     "test/classifiers/prism_test.rb",
+     "test/classifiers/zero_r_test.rb",
+     "test/clusterers/average_linkage_test.rb",
+     "test/clusterers/bisecting_k_means_test.rb",
+     "test/clusterers/centroid_linkage_test.rb",
+     "test/clusterers/complete_linkage_test.rb",
+     "test/clusterers/diana_test.rb",
+     "test/clusterers/k_means_test.rb",
+     "test/clusterers/median_linkage_test.rb",
+     "test/clusterers/single_linkage_test.rb",
+     "test/clusterers/ward_linkage_test.rb",
+     "test/clusterers/weighted_average_linkage_test.rb",
+     "test/data/data_set_test.rb",
+     "test/data/proximity_test.rb",
+     "test/data/statistics_test.rb",
+     "test/experiment/classifier_evaluator_test.rb",
+     "test/genetic_algorithm/chromosome_test.rb",
+     "test/genetic_algorithm/genetic_algorithm_test.rb",
+     "test/neural_network/backpropagation_test.rb",
+     "test/neural_network/hopfield_test.rb",
+     "test/som/som_test.rb",
+     "examples/classifiers/id3_example.rb",
+     "examples/classifiers/naive_bayes_example.rb",
+     "examples/genetic_algorithm/genetic_algorithm_example.rb",
+     "examples/neural_network/backpropagation_example.rb",
+     "examples/neural_network/patterns_with_base_noise.rb",
+     "examples/neural_network/patterns_with_noise.rb",
+     "examples/neural_network/training_patterns.rb",
+     "examples/neural_network/xor_example.rb",
+     "examples/som/som_data.rb",
+     "examples/som/som_multi_node_example.rb",
+     "examples/som/som_single_example.rb"
+  ]
+
+  if s.respond_to? :specification_version then
+    current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
+    s.specification_version = 3
+
+    if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
+    else
+    end
+  else
+  end
 end
